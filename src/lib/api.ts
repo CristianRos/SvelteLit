@@ -1,0 +1,12 @@
+import { hc } from "hono/client";
+import type { Router } from "./server/api/routes"; 
+
+import { PUBLIC_APP_URL } from "$env/static/public";
+
+const client = hc<Router>('');
+export type Client = typeof client
+
+const hcWithType = (...args: Parameters<typeof hc>): Client =>
+  hc<Router>(...args);
+
+export const api = hcWithType(PUBLIC_APP_URL).api;
