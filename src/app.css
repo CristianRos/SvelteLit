@@ -1,3 +1,23 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
+
+h1 {
+	@apply text-3xl font-bold;
+}
+
+h2 {
+	@apply text-xl font-bold;
+}
+
+button {
+	@apply bg-blue-500 text-white;
+	@apply px-4 py-2;
+	@apply rounded-md;
+
+	cursor: pointer;
+
+	&:hover {
+		@apply bg-blue-400;
+	}
+}
