@@ -1,5 +1,5 @@
 <script>
-	import { signIn } from '$/5_shared/lib/authClient';
+	import { signIn } from '$/5_shared/auth/api/authClient';
 </script>
 
 <button

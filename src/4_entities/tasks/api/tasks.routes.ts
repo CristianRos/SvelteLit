@@ -1,4 +1,4 @@
-import { notFoundSchema } from '$/5_shared/api/utils';
+import { notFoundSchema } from '$/_infra/backend/lib/utils';
 import { createTaskSchema, updateTaskSchema, getTaskSchema } from '../model/schema';
 
 import { createRoute, z } from '@hono/zod-openapi';

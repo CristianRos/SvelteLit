@@ -1,4 +1,4 @@
-import { api } from '$/5_shared/api/client';
+import { api } from '$/_infra/backend/api/hono.client';
 import type { GetTask } from '../../model/schema';
 
 import type { CreateQueryOptions } from '@tanstack/svelte-query';

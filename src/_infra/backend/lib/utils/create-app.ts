@@ -1,6 +1,6 @@
-import { auth } from '$/5_shared/lib/auth';
+import { auth } from '$/5_shared/auth/api/auth';
 import { authMiddleware, pinoLogger } from '../middleware';
-import type { AppBindings, AppOpenAPI } from '../utils';
+import type { AppBindings, AppOpenAPI } from '.';
 
 import type { Schema } from 'hono';
 import { requestId } from 'hono/request-id';

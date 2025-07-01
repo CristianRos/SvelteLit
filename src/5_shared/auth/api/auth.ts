@@ -1,4 +1,4 @@
-import { db } from "./db";
+import { db } from "$/_infra/database/api/db";
 
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";

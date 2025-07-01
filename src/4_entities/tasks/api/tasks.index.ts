@@ -1,4 +1,4 @@
-import { createRouter } from '$/5_shared/api/utils';
+import { createRouter } from '$/_infra/backend/lib/utils';
 
 import * as handlers from './tasks.handlers';
 import * as routes from './tasks.routes';

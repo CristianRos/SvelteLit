@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { signOut } from '$/5_shared/lib/authClient';
+	import { signOut } from '$/5_shared/auth/api/authClient';
 	import { invalidateAll } from '$app/navigation';
 </script>
 

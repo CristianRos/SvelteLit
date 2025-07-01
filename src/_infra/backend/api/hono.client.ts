@@ -1,4 +1,4 @@
-import type { Router } from "./routes";
+import type { Router } from "../lib/routes";
 
 import { hc } from "hono/client";
 

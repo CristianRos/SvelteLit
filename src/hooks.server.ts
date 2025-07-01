@@ -1,5 +1,5 @@
-import { auth } from '$/5_shared/lib/auth';
-import { app, type AppType } from '$/5_shared/api/server';
+import { app, type AppType } from '$/_infra/backend/api/hono.server';
+import { auth } from '$/5_shared/auth/api/auth';
 
 import { hc } from 'hono/client';
 
@@ -15,7 +15,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 		return app.fetch(event.request);
 	}
 	
-	// Hono RPC
+	// Hono RPC in the server
 	const api = hc<AppType>(PUBLIC_APP_URL, { fetch: event.fetch });
 	event.locals.api = api;
 	

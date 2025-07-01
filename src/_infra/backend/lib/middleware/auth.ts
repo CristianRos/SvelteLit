@@ -1,4 +1,4 @@
-import { auth } from '$/5_shared/lib/auth';
+import { auth } from '$/5_shared/auth/api/auth';
 import type { AppBindings } from '../utils';
 
 import type { MiddlewareHandler } from 'hono';

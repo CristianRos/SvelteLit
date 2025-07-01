@@ -1,6 +1,6 @@
-import { db } from '$/5_shared/lib/db';
-import type { AppRouteHandler } from '$/5_shared/api/utils/types';
-import { ZOD_ERROR_CODES, ZOD_ERROR_MESSAGES } from '$/5_shared/api/utils/constants';
+import { db } from '$/_infra/database/api/db';
+import type { AppRouteHandler } from '$/_infra/backend/lib/utils/types';
+import { ZOD_ERROR_CODES, ZOD_ERROR_MESSAGES } from '$/_infra/backend/lib/utils/constants';
 
 import { tasks } from '../model/schema';
 
