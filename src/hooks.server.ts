@@ -1,10 +1,9 @@
-import type { Handle } from '@sveltejs/kit';
+import { auth } from '$/5_shared/lib/auth';
+import { app, type AppType } from '$/5_shared/api/server';
 
-import app from '$lib/server/api';
-import type { AppType } from '$lib/server/api';
 import { hc } from 'hono/client';
 
-import { auth } from '$lib/auth';
+import type { Handle } from '@sveltejs/kit';
 
 import { PUBLIC_APP_URL } from '$env/static/public';
 if (!PUBLIC_APP_URL) throw new Error('PUBLIC_APP_URL is not set');
