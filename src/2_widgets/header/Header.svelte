@@ -5,7 +5,7 @@
 	import type { User } from 'better-auth';
 
 	interface Props {
-		user: User;
+		user?: User;
 	}
 
 	const { user }: Props = $props();

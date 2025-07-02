@@ -1,4 +1,4 @@
-import type { AuthType } from '$/5_shared/auth/model/types/auth';
+import type { AuthType } from '$/5_shared/auth/model/types';
 import type { OpenAPIHono, RouteConfig, RouteHandler } from '@hono/zod-openapi';
 import type { Schema } from 'hono';
 import type { PinoLogger } from 'hono-pino';

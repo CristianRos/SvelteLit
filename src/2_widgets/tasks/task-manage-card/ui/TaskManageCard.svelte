@@ -1,6 +1,6 @@
 <script lang="ts">
-	import TaskEditForm from '$/3_features/tasks/edit-task/ui/TaskEditForm.svelte';
-	import TaskRemoveButton from '$/3_features/tasks/remove-task/ui/TaskRemoveButton.svelte';
+	import TaskEditForm from '$/3_features/tasks/manage-tasks/ui/TaskEditForm.svelte';
+	import TaskRemoveButton from '$/3_features/tasks/manage-tasks/ui/TaskRemoveButton.svelte';
 
 	import type { GetTask } from '$/4_entities/tasks/model/schema';
 	import TaskHeader from '$/4_entities/tasks/ui/TaskHeader.svelte';

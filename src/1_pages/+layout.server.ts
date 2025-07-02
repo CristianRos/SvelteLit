@@ -1,4 +1,4 @@
-export function load({locals}) {
+export async function load({locals}) {
     return {
         session: locals.session,
         user: locals.user

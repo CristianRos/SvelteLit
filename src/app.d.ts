@@ -1,5 +1,4 @@
-import type { ClientType } from '$lib/api';
-import type { AuthType } from '$lib/auth';
+import type { AuthType } from '$/5_shared/auth/model/types';
 
 // See https://svelte.dev/docs/kit/types#app.d.ts
 // for information about these interfaces
@@ -7,7 +6,6 @@ declare global {
 	namespace App {
 		// interface Error {}
 		interface Locals {
-			api: ClientType;
 			session: AuthType['session'] | undefined;
 			user: AuthType['user'] | undefined;
 		}

@@ -2,7 +2,7 @@
 	import Header from '$/2_widgets/header/Header.svelte';
 	import TaskList from '$/2_widgets/tasks/task-list/TaskList.svelte';
 
-	import TaskCreateButton from '$/3_features/tasks/create-task/ui/TaskCreateButton.svelte';
+	import TaskCreateButton from '$/3_features/tasks/manage-tasks/ui/TaskCreateButton.svelte';
 	import tasksService from '$/4_entities/tasks/api/service';
 
 	const { data } = $props();

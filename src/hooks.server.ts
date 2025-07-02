@@ -15,10 +15,6 @@ export const handle: Handle = async ({ event, resolve }) => {
 		return app.fetch(event.request);
 	}
 	
-	// Hono RPC in the server
-	const api = hc<AppType>(PUBLIC_APP_URL, { fetch: event.fetch });
-	event.locals.api = api;
-	
 	// Authentication
 	const session = await auth.api.getSession({ headers: event.request.headers });
 	if(session) {
