@@ -1,6 +1,6 @@
-import type { Session, User } from "better-auth"
+import type { Session, User } from 'better-auth';
 
 export type AuthType = {
-    session: Session,
-    user: User
-}
+	session: Session;
+	user: User;
+};

@@ -9,7 +9,7 @@ export function create() {
 	const queryClient = useQueryClient();
 	return createMutation({
 		mutationKey: [`create-${queryKey}`],
-		mutationFn: (data: CreateTask) => api.tasks.$post({ json: data }),
+		mutationFn: async (data: CreateTask) => await api.tasks.$post({ json: data }),
 		onSuccess: () => queryClient.invalidateQueries({ queryKey: ['tasks'] })
 	});
 }
@@ -18,10 +18,9 @@ export function update() {
 	const queryClient = useQueryClient();
 	return createMutation({
 		mutationKey: [`update-${queryKey}`],
-		mutationFn: (variables: { id: number; data: UpdateTask }) =>
-			api.tasks[':id'].$patch({ param: { id: variables.id }, json: variables.data }),
-		onSuccess: () =>
-			queryClient.invalidateQueries({ queryKey: [queryKey] })
+		mutationFn: async (variables: { id: number; data: UpdateTask }) =>
+			await api.tasks[':id'].$patch({ param: { id: variables.id }, json: variables.data }),
+		onSuccess: () => queryClient.invalidateQueries({ queryKey: [queryKey] })
 	});
 }
 
@@ -29,7 +28,7 @@ export function remove() {
 	const queryClient = useQueryClient();
 	return createMutation({
 		mutationKey: [`remove-${queryKey}`],
-		mutationFn: (id: number) => api.tasks[':id'].$delete({ param: { id } }),
+		mutationFn: async (id: number) => await api.tasks[':id'].$delete({ param: { id } }),
 		onSuccess: () => queryClient.invalidateQueries({ queryKey: [queryKey] })
 	});
 }

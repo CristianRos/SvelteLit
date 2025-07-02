@@ -17,7 +17,7 @@
 	{:else if $tasksQuery.isError}
 		<p>Error: {$tasksQuery.error.message}</p>
 	{:else if $tasksQuery.data}
-		{#each $tasksQuery.data as task}
+		{#each $tasksQuery.data as task (task.id)}
 			<TaskManageCard {task} />
 		{/each}
 	{:else}

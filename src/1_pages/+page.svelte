@@ -3,7 +3,7 @@
 	import TaskList from '$/2_widgets/tasks/task-list/TaskList.svelte';
 
 	import TaskCreateButton from '$/3_features/tasks/manage-tasks/ui/TaskCreateButton.svelte';
-	import tasksService from '$/4_entities/tasks/api/service';
+	import { tasksService } from '$/4_entities/tasks/api/service';
 
 	const { data } = $props();
 	const user = $derived(data.user);

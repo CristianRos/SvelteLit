@@ -1,5 +1,5 @@
 <script lang="ts">
-	import tasksService from '$/4_entities/tasks/api/service';
+	import { tasksService } from '$/4_entities/tasks/api/service';
 	import type { GetTask, UpdateTask } from '$/4_entities/tasks/model/schema';
 
 	interface Props {

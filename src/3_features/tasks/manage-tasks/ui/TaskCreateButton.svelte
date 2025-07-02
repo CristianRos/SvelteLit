@@ -1,5 +1,5 @@
 <script lang="ts">
-	import tasksService from '$/4_entities/tasks/api/service';
+	import { tasksService } from '$/4_entities/tasks/api/service';
 
 	const createTaskMut = tasksService.mut.create();
 	const create = () => {

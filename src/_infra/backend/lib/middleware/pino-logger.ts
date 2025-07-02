@@ -6,8 +6,8 @@ import pretty from 'pino-pretty';
 
 import { LOG_LEVEL, NODE_ENV } from '$env/static/private';
 
-if(!LOG_LEVEL) throw new Error('LOG_LEVEL is not set');
-if(!NODE_ENV) throw new Error('NODE_ENV is not set');
+if (!LOG_LEVEL) throw new Error('LOG_LEVEL is not set');
+if (!NODE_ENV) throw new Error('NODE_ENV is not set');
 
 export const pinoLogger: MiddlewareHandler = async (c, next) => {
 	await logger({

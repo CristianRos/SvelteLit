@@ -9,7 +9,6 @@ import { OpenAPIHono } from '@hono/zod-openapi';
 import { defaultHook } from 'stoker/openapi';
 import { notFound, onError, serveEmojiFavicon } from 'stoker/middlewares';
 
-
 export function createRouter() {
 	return new OpenAPIHono<AppBindings>({
 		strict: false,
@@ -19,11 +18,7 @@ export function createRouter() {
 
 export function createApp() {
 	const app = createRouter();
-	app
-		.use(requestId())
-		.use(serveEmojiFavicon('📝'))
-		.use(pinoLogger)
-		.use('*', authMiddleware);
+	app.use(requestId()).use(serveEmojiFavicon('📝')).use(pinoLogger).use('*', authMiddleware);
 
 	app.on(['POST', 'GET'], 'api/auth/**', (c) => auth.handler(c.req.raw));
 

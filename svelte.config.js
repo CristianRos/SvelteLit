@@ -6,17 +6,17 @@ const config = {
 	// Consult https://svelte.dev/docs/kit/integrations
 	// for more information about preprocessors
 	preprocess: vitePreprocess(),
-	kit: { 
+	kit: {
 		adapter: adapter(),
 		files: {
 			routes: 'src/1_pages',
 			appTemplate: 'src/0_app/app.html',
-			lib: 'src',
+			lib: 'src'
 		},
 		alias: {
-			'$/*': './src/*', 
+			'$/*': './src/*'
 		}
-	 }
+	}
 };
 
 export default config;
