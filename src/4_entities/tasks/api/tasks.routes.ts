@@ -4,7 +4,7 @@ import { createTaskSchema, updateTaskSchema, getTaskSchema } from '../model/sche
 import { createRoute, z } from '@hono/zod-openapi';
 import * as HttpStatusCodes from 'stoker/http-status-codes';
 import { jsonContent, jsonContentRequired } from 'stoker/openapi/helpers';
-import { createErrorSchema, IdParamsSchema } from 'stoker/openapi/schemas';
+import { createErrorSchema, createMessageObjectSchema, IdParamsSchema } from 'stoker/openapi/schemas';
 
 const tags = ['Test'];
 
@@ -13,7 +13,11 @@ export const list = createRoute({
 	method: 'get',
 	tags,
 	responses: {
-		[HttpStatusCodes.OK]: jsonContent(z.array(getTaskSchema), 'The list of tasks')
+		[HttpStatusCodes.OK]: jsonContent(z.array(getTaskSchema), 'The list of tasks'),
+		[HttpStatusCodes.INTERNAL_SERVER_ERROR]: jsonContent(
+			createMessageObjectSchema('An unexpected error ocurred'),
+			'Internal server error'
+		)
 	}
 });
 
@@ -29,6 +33,10 @@ export const create = createRoute({
 		[HttpStatusCodes.UNPROCESSABLE_ENTITY]: jsonContent(
 			createErrorSchema(createTaskSchema),
 			'The validation error(s)'
+		),
+		[HttpStatusCodes.INTERNAL_SERVER_ERROR]: jsonContent(
+			createMessageObjectSchema('An unexpected error ocurred'),
+			'Internal server error'
 		)
 	}
 });
@@ -46,6 +54,10 @@ export const getOne = createRoute({
 		[HttpStatusCodes.UNPROCESSABLE_ENTITY]: jsonContent(
 			createErrorSchema(IdParamsSchema),
 			'Invalid id error'
+		),
+		[HttpStatusCodes.INTERNAL_SERVER_ERROR]: jsonContent(
+			createMessageObjectSchema('An unexpected error ocurred'),
+			'Internal server error'
 		)
 	}
 });
@@ -64,6 +76,10 @@ export const patch = createRoute({
 		[HttpStatusCodes.UNPROCESSABLE_ENTITY]: jsonContent(
 			createErrorSchema(updateTaskSchema).or(createErrorSchema(IdParamsSchema)),
 			'The validation error(s)'
+		),
+		[HttpStatusCodes.INTERNAL_SERVER_ERROR]: jsonContent(
+			createMessageObjectSchema('An unexpected error ocurred'),
+			'Internal server error'
 		)
 	}
 });
@@ -83,6 +99,10 @@ export const remove = createRoute({
 		[HttpStatusCodes.UNPROCESSABLE_ENTITY]: jsonContent(
 			createErrorSchema(IdParamsSchema),
 			'Invalid id error'
+		),
+		[HttpStatusCodes.INTERNAL_SERVER_ERROR]: jsonContent(
+			createMessageObjectSchema('An unexpected error ocurred'),
+			'Internal server error'
 		)
 	}
 });

@@ -10,7 +10,7 @@ export function create() {
 	return createMutation({
 		mutationKey: [`create-${queryKey}`],
 		mutationFn: async (data: CreateTask) => await api.tasks.$post({ json: data }),
-		onSuccess: () => queryClient.invalidateQueries({ queryKey: ['tasks'] })
+		onSuccess: () => queryClient.invalidateQueries({ queryKey: [queryKey] })
 	});
 }
 

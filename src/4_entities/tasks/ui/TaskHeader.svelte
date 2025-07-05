@@ -27,6 +27,10 @@
 		@apply text-lg;
 
 		@apply flex flex-row flex-wrap items-center justify-between gap-4;
+
+		& p {
+			@apply overflow-hidden;
+		}
 	}
 
 	.actions {

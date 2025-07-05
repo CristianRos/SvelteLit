@@ -1,5 +1,4 @@
 <script lang="ts">
-	import TaskManageCard from '$/2_widgets/tasks/task-manage-card/ui/TaskManageCard.svelte';
 	import type { GetTask } from '../model/schema';
 
 	interface Props {
@@ -9,7 +8,6 @@
 	const { task }: Props = $props();
 </script>
 
-<TaskManageCard {task} />
 <div class="details">
 	<p>
 		<span>Description:&nbsp;</span>
