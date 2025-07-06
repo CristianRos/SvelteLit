@@ -16,12 +16,12 @@ export const list: AppRouteHandler<ListRoute> = async (c) => {
 		return c.json(tasks, HttpStatusCodes.OK);
 	} catch (error) {
 		console.error('Error fetching tasks:', error);
-        return c.json(
-            {
-                message: HttpStatusPhrases.INTERNAL_SERVER_ERROR,
-            },
-            HttpStatusCodes.INTERNAL_SERVER_ERROR
-        );
+		return c.json(
+			{
+				message: HttpStatusPhrases.INTERNAL_SERVER_ERROR
+			},
+			HttpStatusCodes.INTERNAL_SERVER_ERROR
+		);
 	}
 };
 
@@ -37,7 +37,7 @@ export const create: AppRouteHandler<CreateRoute> = async (c) => {
 
 		return c.json(
 			{
-				message: HttpStatusPhrases.INTERNAL_SERVER_ERROR,
+				message: HttpStatusPhrases.INTERNAL_SERVER_ERROR
 			},
 			HttpStatusCodes.INTERNAL_SERVER_ERROR
 		);
@@ -53,7 +53,7 @@ export const getOne: AppRouteHandler<GetOneRoute> = async (c) => {
 				return operators.eq(fields.id, id);
 			}
 		});
-	
+
 		if (!task) {
 			return c.json(
 				{
@@ -62,13 +62,13 @@ export const getOne: AppRouteHandler<GetOneRoute> = async (c) => {
 				HttpStatusCodes.NOT_FOUND
 			);
 		}
-	
+
 		return c.json(task, HttpStatusCodes.OK);
 	} catch (error) {
 		console.error('Error fetching task:', error);
 		return c.json(
 			{
-				message: HttpStatusPhrases.INTERNAL_SERVER_ERROR,
+				message: HttpStatusPhrases.INTERNAL_SERVER_ERROR
 			},
 			HttpStatusCodes.INTERNAL_SERVER_ERROR
 		);
@@ -83,9 +83,9 @@ export const patch: AppRouteHandler<PatchRoute> = async (c) => {
 		if (Object.keys(updates).length === 0) {
 			return c.json(noUpdatesJson, HttpStatusCodes.UNPROCESSABLE_ENTITY);
 		}
-	
+
 		const [task] = await db.update(tasks).set(updates).where(eq(tasks.id, id)).returning();
-	
+
 		if (!task) {
 			return c.json(
 				{
@@ -94,25 +94,25 @@ export const patch: AppRouteHandler<PatchRoute> = async (c) => {
 				HttpStatusCodes.NOT_FOUND
 			);
 		}
-	
+
 		return c.json(task, HttpStatusCodes.OK);
 	} catch (error) {
 		console.error('Error updating task:', error);
 		return c.json(
 			{
-				message: HttpStatusPhrases.INTERNAL_SERVER_ERROR,
+				message: HttpStatusPhrases.INTERNAL_SERVER_ERROR
 			},
 			HttpStatusCodes.INTERNAL_SERVER_ERROR
 		);
 	}
 };
-			
+
 export const remove: AppRouteHandler<RemoveRoute> = async (c) => {
 	const { id } = c.req.valid('param');
 
 	try {
 		const result = await db.delete(tasks).where(eq(tasks.id, id));
-	
+
 		if (result.rowCount === 0) {
 			return c.json(
 				{
@@ -121,15 +121,15 @@ export const remove: AppRouteHandler<RemoveRoute> = async (c) => {
 				HttpStatusCodes.NOT_FOUND
 			);
 		}
-	
+
 		return c.body(null, HttpStatusCodes.NO_CONTENT);
 	} catch (error) {
 		console.error('Error deleting task:', error);
 		return c.json(
 			{
-				message: HttpStatusPhrases.INTERNAL_SERVER_ERROR,
+				message: HttpStatusPhrases.INTERNAL_SERVER_ERROR
 			},
 			HttpStatusCodes.INTERNAL_SERVER_ERROR
-			);
+		);
 	}
 };
