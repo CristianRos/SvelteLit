@@ -59,7 +59,6 @@ describe('Tasks Service', () => {
             mockedApi.tasks.$get.mockResolvedValue({
                 ok: false,
                 status: 500,
-               
             });
 
             const queryFn = getTasksQueryOptions.queryFn as QueryFunction<GetTask[], readonly unknown[]>;
